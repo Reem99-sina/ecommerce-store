@@ -42,7 +42,7 @@ return(
                 <Currency value={totalPrice}/>
             </div>
         </div>
-        <Button className="w-full mt-6 " onClick={checkout}>
+        <Button className="w-full mt-6 " onClick={checkout} disabled={items.length==0}>
             checkout 
         </Button>
     </div>

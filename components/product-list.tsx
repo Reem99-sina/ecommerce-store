@@ -1,7 +1,7 @@
 import { Product } from "@/types"
 import NoResults from "./ui/no-results"
 import ProductCard from "./ui/product-card"
-function ProductList({title,items}:{title:string,items:Product[]}) {
+function ProductList({title,items}:{title:string,items:Product[]|void}) {
   return (
     <div className="space-y-4">
         <h3 className="font-bold text-3xl">{title}</h3>

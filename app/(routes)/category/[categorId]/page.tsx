@@ -8,6 +8,7 @@ import Filter from "./components/filter";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filter";
+import { Product } from "@/types";
 
 export const revalidate=0
 const CategoryIdPage = async({params,searchParams}:{params:{categorId:string},searchParams:{colorId:string,sizeId:string}}) => {
@@ -19,7 +20,7 @@ const CategoryIdPage = async({params,searchParams}:{params:{categorId:string},se
     const sizes= await getSizes()
     const colors=await getColors()
     const category=await getCategories(params.categorId)
-  console.log(searchParams,"searchParams")
+  
     return (<div className="bg-white">
         <Container>
         <BillboardPage data={category?.billboard}/>
@@ -32,9 +33,9 @@ const CategoryIdPage = async({params,searchParams}:{params:{categorId:string},se
 
                 </div>
                 <div className="mt-6 lg:col-span-4 lg:mt-0">
-                    {products.length==0&&<NoResults/>}
+                    {products?.length==0&&<NoResults/>}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        {products.map((product)=>(
+                        {products?.map((product:Product)=>(
                             <ProductCard key={product.id} data={product}/>
                         ))}
                     </div>

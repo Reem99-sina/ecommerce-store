@@ -7,7 +7,7 @@ interface  QueryProps{
   colorId?:string;
   isFeatured?:boolean;
 }
- const getProducts = async (query:QueryProps): Promise<Product[]> => {
+ const getProducts = async (query:QueryProps): Promise<Product[]|void> => {
     const url=qs.stringifyUrl({
       url:URL,
       query:{
@@ -17,9 +17,12 @@ interface  QueryProps{
   isFeatured:query.isFeatured
       }
     })
-       const res=await fetch(url)
+      const res= await fetch(url)
         
-         return res.json()
+        return res.json() 
+     
+       
+         
        
    
     

@@ -1,3 +1,4 @@
+
 import Container from "@/components/ui/container"
 import Link from "next/link"
 import MainNav from "./main-nav"
@@ -13,7 +14,7 @@ return(
             <Link href="/"className="ml-4 flex lg:ml-0 gap-x-2">
                 <p className="font-bold text-xl">STORE</p>
             </Link>
-            <MainNav data={categories}/>
+           { categories?.length>0? <MainNav data={categories}/>:<></>}
             <NavbarAction/>
             </div>
         </Container>

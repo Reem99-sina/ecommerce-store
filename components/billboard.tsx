@@ -1,6 +1,6 @@
 import {Billboard as BillboardTypes} from "@/types"
 interface BillboardProps{
-    data:BillboardTypes|null
+    data:BillboardTypes|void
 }
 const BillboardPage:React.FC<BillboardProps>=({data})=>{
     

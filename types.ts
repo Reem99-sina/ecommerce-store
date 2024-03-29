@@ -8,6 +8,10 @@ export interface Category{
     name:string;
     billboard:Billboard
 }
+export interface Store{
+    id: string,
+    name: string,
+}
 export interface Product{
     id:string;
     category:Category;

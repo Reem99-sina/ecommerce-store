@@ -9,17 +9,21 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filter";
 import { Product } from "@/types";
+import getStore from "@/action/get-store"
 
 export const revalidate=0
 const CategoryIdPage = async({params,searchParams}:{params:{categorId:string},searchParams:{colorId:string,sizeId:string}}) => {
+  const store=await getStore()
+  const indexStore=store && Array.isArray(store) && store?.length > 0 ? store[store?.length - 1]?.id : store?.length == 0?store[0]?.id:undefined
     const products=await getProducts({
         categoryId:params.categorId,
         sizeId:searchParams.sizeId,
         colorId:searchParams.colorId,
+        id:indexStore
     })
-    const sizes= await getSizes()
-    const colors=await getColors()
-    const category=await getCategories(params.categorId)
+    const sizes= await getSizes(indexStore)
+    const colors=await getColors(indexStore)
+    const category=await getCategories(params.categorId,indexStore)
   
     return (<div className="bg-white">
         <Container>

@@ -5,12 +5,12 @@ import Info from "@/components/info"
 import ProductList from "@/components/product-list"
 import Container from "@/components/ui/container"
 const ProductPage=async({params}:{params:{productId:string}})=>{
-    console.log(params.productId,"productId")
+ 
     const product=await getProductId(params.productId)
     const suggestedProduct=await getProducts({
         categoryId:product?.category?.id
     })
-    console.log(suggestedProduct,"suggestedProduct")
+  
 return(
     <div>
         <Container>

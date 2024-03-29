@@ -1,9 +1,9 @@
 import { Billboard } from "@/types";
 
 const URL =`${process.env.NEXT_PUBLIC_API_URL}`
- const getBillboards = async (id?:string,idStore?:string): Promise<Billboard|void> => {
+ const getBillboardsAll = async (idStore?:string): Promise<Billboard[]|void> => {
       
-      const res= await fetch(`${URL}/${idStore}/billboards/${id}`)
+      const res= await fetch(`${URL}/${idStore}/billboards/`)
      
       if (res.status==200) {return  res.json()}
       else {
@@ -11,4 +11,4 @@ const URL =`${process.env.NEXT_PUBLIC_API_URL}`
      }
           
 }
-export default getBillboards
+export default getBillboardsAll
